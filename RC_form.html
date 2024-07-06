@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream CarZ - Request a Car</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+        }
+
+        .hamburger {
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+        }
+
+        .topnav {
+            display: none;
+            background-color: black;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .topnav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        form input,
+        form textarea,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: darkgreen;
+        }
+
+        .thank-you {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e0ffe0;
+            border: 1px solid #b2d8b2;
+            border-radius: 8px;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .topnav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+
+            .topnav {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+            <div class="logo-title">
+                <img src="images/logo.png" alt="Dream CarZ Logo" class="logo">
+                <h1 class="title">Dream CarZ</h1>
+            </div>
+        </div>
+        <nav id="topNav" class="topnav">
+            <a href="#home">Home</a>
+            <a href="#carz-hub">CarZ Hub</a>
+            <a href="U_C.html">Upcomings</a>
+            <a href="#modify-service">Modify or Service</a>
+            <a href="#forms">Forms</a>
+            <a href="#buy-sell">Buy or Sell Old Cars</a>
+            <a href="#about-contact">About and Contact Us</a>
+        </nav>
+    </header>
+
+    <nav id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="#home">Home</a>
+        <a href="#carz-hub">CarZ Hub</a>
+        <a href="#U_C.html">Upcomings</a>
+        <a href="#modify-service">Modify or Service</a>
+        <a href="#forms">Forms</a>
+        <a href="#buy-sell">Buy or Sell Old Cars</a>
+        <a href="#about-contact">About and Contact Us</a>
+    </nav>
+
+    <form id="requestForm">
+        <h2>Request a Car</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+        
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="required_car">Type your required old car:</label>
+        <input type="text" id="required_car" name="required_car" required>
+        
+        <label for="brand">Select brand:</label>
+        <select id="brand" name="brand" required>
+            <option value="toyota">Toyota</option>
+            <option value="honda">Honda</option>
+            <option value="ford">Ford</option>
+            <option value="chevrolet">Chevrolet</option>
+            <option value="nissan">Nissan</option>
+            <!-- Add more brands as needed -->
+        </select>
+        
+        <label for="expected_price">Enter expected price you want:</label>
+        <input type="number" id="expected_price" name="expected_price" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="thankYouMessage" class="thank-you">
+        Thank you for the request. Our system and team will find dealers and will contact you via your email and mobile.
+    </div>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("sideNav");
+            if (nav.style.width === "250px") {
+                nav.style.width = "0";
+            } else {
+                nav.style.width = "250px";
+            }
+        }
+
+        document.getElementById('requestForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('thankYouMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

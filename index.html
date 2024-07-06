@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream CarZ</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Quick style for the sidenav */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+            <div class="logo-title">
+                <img src="images/logo.png" alt="Dream CarZ Logo" class="logo">
+                <h1 class="title">Dream CarZ</h1>
+            </div>
+        </div>
+        <nav id="topNav" class="topnav">
+            <a href="index.html">Home</a>
+        <a href="CH.html">CarZ Hub</a>
+        <a href="UC.html">Upcomings</a>
+        <a href="MS.html">Modify or Service</a>
+        <a href="forms.html">Forms</a>
+        <a href="BSO.html">Buy or Sell Old Cars</a>
+        <a href="AC.html">About and Contact Us</a>
+        </nav>
+    </header>
+
+    <nav id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="CH.html">CarZ Hub</a>
+        <a href="UC.html">Upcomings</a>
+        <a href="MS.html">Modify or Service</a>
+        <a href="forms.html">Forms</a>
+        <a href="BSO.html">Buy or Sell Old Cars</a>
+        <a href="AC.html">About and Contact Us</a>
+    </nav>
+
+    <section id="carz-hub">
+        <h2>Mercedes BenZ G-Wagon</h2>
+        <div class="highlight">
+            <img src="images/car1.jpg" alt="Car 1">
+            <div class="details">
+                <h3>Available now</h3>
+                <p> High end luxury SUV with premium quality features like: <br>- Powerful engines<br>- Luxurious features<br>- Iconic off-roader design</p>
+                <p>It comes with power!</p>
+                <p>Now at $20,000</p>
+                <button onclick="location.href='form-link.html'">Click Here to book now!</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="upcomings">
+        <h2>Upcomings</h2>
+        <div class="highlight">
+            <img src="images/u.png" alt="Car 2">
+            <div class="details">
+                <h3>Willing to buy latest models?</h3>
+                <p>Want to know the future cars?        With expected price?</p>
+                <p>Want to notify first for the desired car?</p>
+                <p>Check out upcomings now!</p>
+                <button onclick="location.href='form-link.html'">Click Here to Know More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="modify-service">
+        <h2>Modification and Service</h2>
+        <div class="highlight">
+            <img src="images/M_S.png" alt="Car 3">
+            <div class="details">
+                <h3>Get 10 to 30% off on first Service</h3>
+                <p>We offer amazing discounts on car modifications and services.</p>
+                <p>Terms & Conditions apply</p>
+                <p>Level up your Car now!</p>
+                <button onclick="location.href='form-link.html'">Find Locations in your city</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="forms">
+        <h2>Request for old models</h2>
+        <div class="highlight">
+            <img src="images/R_C.jpg" alt="Car 4">
+            <div class="details">
+                <h3>Want an old beast?</h3>
+                <p>Step 1: Fill out the form to send us your request for assistance.</p>
+                <p>Step 2: Contact the dealer or seller</p>
+                <p>Step 3: Documentation and Payment</p>
+                <p>Step 4: Enjoy :)</p>
+                <button onclick="location.href='form-link.html'">Open a Request Now!</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="buy-sell">
+        <h2>Buy or Sell Used Cars</h2>
+        <div class="highlight">
+            <img src="images/B_S.png" alt="Car 5">
+            <div class="details">
+                <h3>Want Second Hand Cars?</h3>
+                <p>Looking to sell your car? We can help you with the best deals</p>
+                <p>No worries! Find buyers and sellers from our platform</p>
+                <p>And Make a good deal</p>
+                <button onclick="location.href='form-link.html'">Click Here to Know More</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("sideNav");
+            if (nav.style.width === "250px") {
+                nav.style.width = "0";
+            } else {
+                nav.style.width = "250px";
+            }
+        }
+    </script>
+</body>
+</html>

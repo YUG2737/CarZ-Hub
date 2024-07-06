@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 2em;
+}
+
+.hamburger {
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
+}
+
+.topnav {
+    display: none;
+    background-color: black;
+    overflow: hidden;
+    text-align: center;
+}
+
+.topnav a {
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* General styles for all paragraphs */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Specific styles for paragraphs within each section */
+#carz-hub p {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+#upcomings p {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+#modify-service p {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+#forms p {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+#buy-sell p {
+    font-size: 18px;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.highlight img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.details {
+    margin-left: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+@media (max-width: 768px) {
+    .topnav {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    .highlight {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+    .topnav {
+        display: block;
+    }
+
+    .sidenav {
+        width: 0;
+    }
+}

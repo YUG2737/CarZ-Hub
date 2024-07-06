@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream CarZ</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+        }
+
+        .hamburger {
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Top Navigation Bar */
+        .topnav {
+            display: none; /* Hide in mobile view */
+            background-color: black;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .topnav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .topnav a:hover {
+            background-color: #575757;
+        }
+
+        /* Side Navigation Menu */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            background-color: #555;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .topnav {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+            .topnav {
+                display: block;
+            }
+
+            .sidenav {
+                width: 0; /* Keep side navigation hidden by default */
+            }
+        }
+
+        /* Car Showcase Styles */
+        main {
+            padding: 20px;
+        }
+
+        #car-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .car-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .car-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .car-card .details {
+            padding: 10px;
+        }
+
+        .car-card .details h2 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+        }
+
+        .car-card .details p {
+            margin: 0;
+            color: #555;
+        }
+
+        .car-card .details ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .car-card .details ul li {
+            margin: 5px 0;
+        }
+
+        .car-card .details button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .car-card .details button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+            <div class="logo-title">
+                <img src="logo.png" alt="Dream CarZ Logo" class="logo">
+                <h1 class="title">Dream CarZ</h1>
+            </div>
+        </div>
+        <nav id="topNav" class="topnav">
+            <a href="index.html">Home</a>
+            <a href="CH.html">CarZ Hub</a>
+            <a href="UC.html">Upcomings</a>
+            <a href="MS.html">Modify or Service</a>
+            <a href="forms.html">Forms</a>
+            <a href="BSO.html">Buy or Sell Old Cars</a>
+            <a href="AC.html">About and Contact Us</a>
+        </nav>
+    </header>
+
+    <nav id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="CH.html">CarZ Hub</a>
+        <a href="UC.html">Upcomings</a>
+        <a href="MS.html">Modify or Service</a>
+        <a href="forms.html">Forms</a>
+        <a href="BSO.html">Buy or Sell Old Cars</a>
+        <a href="AC.html">About and Contact Us</a>
+    </nav>
+
+    <main>
+        <section id="car-list">
+            <!-- Car cards will be generated here by JavaScript -->
+        </section>
+    </main>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("sideNav");
+            if (nav.style.width === "250px") {
+                nav.style.width = "0";
+            } else {
+                nav.style.width = "250px";
+            }
+        }
+
+        const cars = [
+            {
+                name: 'Range Rover EV',
+                image: 'https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/RR_22MY_REVEAL_ROH_261021_11_233.jpg',
+                description: 'An electric car with incredible performance and technology.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 1020,
+                    range: '396 miles',
+                    price: '$120,000',
+                    releaseDate: 'Q1 2025'
+                }
+            },
+            {
+                name: 'Toyota Camry',
+                image: 'https://tse4.mm.bing.net/th?id=OIP.u-bAeMNgsW3vuFr88_SOJwHaEK&pid=Api&P=0&h=180',
+                description: 'THE 2025 model continues to evolve with modern features and efficiency.',
+                specs: {
+                    engine: '5.0L V8',
+                    horsepower: 232,
+                    range: '300 miles',
+                    price: '$25,000',
+                    releaseDate: 'Q3 2024'
+                }
+            },
+            {
+                name: 'Chevy Corvette Zora',
+                image: 'https://tse3.mm.bing.net/th?id=OIP.WhfHKGIj69t7ippqAFO2oAHaE8&pid=Api&P=0&h=180',
+                description: 'A high-performance hybrid supercar blending traditional corvette power with electric motors.',
+                specs: {
+                    engine: '6.2L V8',
+                    horsepower: 455,
+                    range: '310 miles',
+                    price: '$80,000',
+                    releaseDate: 'Q2 2024'
+                }
+            },
+            {
+                name: 'Dacia Spring',
+                image: 'https://tse1.mm.bing.net/th?id=OIP.vZPb_ggVBBnhaaFlBaFJhgHaFZ&pid=Api&P=0&h=180',
+                description: 'Known as one of the cheapest electric cars, it s set to offer basic EV functionality at a very low price point.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 150,
+                    range: '200 miles',
+                    price: '$15,000',
+                    releaseDate: 'Q4 2024'
+                }
+            },
+            {
+                name: 'MG Cyberster',
+                image: 'https://i0.wp.com/autoanalitica.com.mx/wp-content/uploads/2023/06/MG-Cyberster-2025-02.jpg?resize=1024%2C683&ssl=1',
+                description: 'An electric roadster expected to make a significant impact with its blend of performance and style.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 700,
+                    range: '600 miles',
+                    price: '$60,000',
+                    releaseDate: 'Q2 2025'
+                }
+            },
+            {
+                name: 'Lotus Emeya',
+                image: 'https://tse2.mm.bing.net/th?id=OIP.rrJacu1GkGr1X_xLKcmX0AAAAA&pid=Api&P=0&h=180',
+                description: 'A high-performance electric saloon set to challenge the likes of the Tesla Model S.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 905,
+                    range: '800 miles',
+                    price: '$150,000',
+                    releaseDate: 'Q3 2024'
+                }
+            },
+            {
+                name: 'Polestar 4',
+                image: 'https://tse4.mm.bing.net/th?id=OIP.afwYH3T8YbBak6hFsTsz9wAAAA&pid=Api&P=0&h=180',
+                description: 'A sleek electric coupe with impressive performance and range capabilities.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 536,
+                    range: '300 miles',
+                    price: '$55,000',
+                    releaseDate: 'Q1 2024'
+                }
+            },
+            {
+                name: 'Citroen e-C3',
+                image: 'https://tse1.mm.bing.net/th?id=OIP.CF9I-6paYKueZbA3nCqFJwHaEL&pid=Api&P=0&h=180',
+                description: 'An affordable electric SUV, designed with practicality and budget-friendliness in mind.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 450,
+                    range: '300 miles',
+                    price: '$30,000',
+                    releaseDate: 'Q4 2024'
+                }
+            },
+            {
+                name: 'Toyota Crown',
+                image: 'https://tse4.mm.bing.net/th?id=OIP.CcQQFV61fc8s6ffEy1excQAAAA&pid=Api&P=0&h=180',
+                description: 'A luxury sedan with new features like heated and ventilated seats, dynamic rear steering.',
+                specs: {
+                    engine: '5.0L V8',
+                    horsepower: 450,
+                    range: '300 miles',
+                    price: '$70,000',
+                    releaseDate: 'Q2 2024'
+                }
+            },
+            {
+                name: 'Renault 5',
+                image: 'https://tse1.mm.bing.net/th?id=OIP.Ro6xIR1Cj8RH9Z192uOB7AHaE7&pid=Api&P=0&h=180',
+                description: 'A revival of the classic model, this electric hatchback aims to offer affordability and modern technology.',
+                specs: {
+                    engine: 'Electric',
+                    horsepower: 450,
+                    range: '300 miles',
+                    price: '$20,000',
+                    releaseDate: 'Q3 2024'
+                }
+            }
+        ];
+
+        const carList = document.getElementById('car-list');
+
+        function displayCars() {
+            carList.innerHTML = '';
+            cars.forEach(car => {
+                const carCard = document.createElement('div');
+                carCard.className = 'car-card';
+
+                carCard.innerHTML = `
+                    <img src="${car.image}" alt="${car.name}">
+                    <div class="details">
+                        <h2>${car.name}</h2>
+                        <p>${car.description}</p>
+                        <ul>
+                            <li>Engine: ${car.specs.engine}</li>
+                            <li>Horsepower: ${car.specs.horsepower}</li>
+                            <li>Range: ${car.specs.range}</li>
+                            <li>Expected Price: ${car.specs.price}</li>
+                            <li>Expected Release Date: ${car.specs.releaseDate}</li>
+                        </ul>
+                        <button onclick="registerNow('${car.name}')">Register Now</button>
+                    </div>
+                `;
+
+                carList.appendChild(carCard);
+            });
+        }
+
+        function registerNow(carName) {
+            alert(`Registering interest for: ${carName}`);
+            window.location.href = 'Upc.html';
+        }
+
+        // Initial display of all cars
+        displayCars();
+    </script>
+</body>
+</html>

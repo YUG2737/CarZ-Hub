@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose a Form - Dream CarZ</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+        }
+
+        .hamburger {
+            font-size: 2em;
+            cursor: pointer;
+            color: white;
+        }
+
+        .topnav {
+            display: none;
+            background-color: black;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .topnav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .container select, .container button {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .container button {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: darkgreen;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .topnav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger {
+                display: none;
+            }
+
+            .topnav {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+            <div class="logo-title">
+                <img src="images/logo.png" alt="Dream CarZ Logo" class="logo">
+                <h1 class="title">Dream CarZ</h1>
+            </div>
+        </div>
+        <nav id="topNav" class="topnav">
+            <a href="index.html">Home</a>
+        <a href="CH.html">CarZ Hub</a>
+        <a href="UC.html">Upcomings</a>
+        <a href="MS.html">Modify or Service</a>
+        <a href="forms.html">Forms</a>
+        <a href="BSO.html">Buy or Sell Old Cars</a>
+        <a href="AC.html">About and Contact Us</a>
+        </nav>
+    </header>
+
+    <nav id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="CH.html">CarZ Hub</a>
+        <a href="UC.html">Upcomings</a>
+        <a href="MS.html">Modify or Service</a>
+        <a href="forms.html">Forms</a>
+        <a href="BSO.html">Buy or Sell Old Cars</a>
+        <a href="AC.html">About and Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <h2>Choose a Form</h2>
+        <select id="formSelector">
+            <option value="">Select a form...</option>
+            <option value="Upc.html">Upcoming Car Registration</option>
+            <option value="BC_form.html">Buy a Car</option>
+            <option value="RC_form.html">Request an Old Car</option>
+            <option value="JD_form.html">Join as a Dealer</option>
+            <option value="RTD_form.html">Request for a Test Drive</option>
+        </select>
+        <button onclick="submitForm()">Go</button>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("sideNav");
+            if (nav.style.width === "250px") {
+                nav.style.width = "0";
+            } else {
+                nav.style.width = "250px";
+            }
+        }
+
+        function submitForm() {
+            var formSelector = document.getElementById('formSelector');
+            var selectedForm = formSelector.value;
+            if (selectedForm) {
+                window.location.href = selectedForm;
+            } else {
+                alert('Please select a form to proceed.');
+            }
+        }
+    </script>
+</body>
+</html>

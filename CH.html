@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream CarZ</title>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; background-color: #f8f8f8;">
+    <header style="background-color: black; color: white; padding: 20px;">
+        <div class="header-content" style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: auto;">
+            <span class="hamburger" onclick="toggleNav()" style="font-size: 2em; cursor: pointer; display: block; color: white; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">&#9776;</span>
+            <div class="logo-title" style="display: flex; align-items: center; justify-content: center;">
+                <img src="logo.png" alt="Dream CarZ Logo" class="logo" style="height: 60px; width: auto; margin-right: 10px;">
+                <h1 class="title" style="font-size: 2em; font-family: 'New York', Georgia, serif; text-align: center;">Dream CarZ</h1>
+            </div>
+        </div>
+        <nav id="topNav" class="topnav" style="display: none; background-color: black; overflow: hidden; text-align: center;">
+            <a href="index.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Home</a>
+            <a href="AC.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">CarZ Hub</a>
+            <a href="UC.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Upcomings</a>
+            <a href="MS.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Modify or Service</a>
+            <a href="forms.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Forms</a>
+            <a href="BSO.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">Buy or Sell Old Cars</a>
+            <a href="ABC.html" style="display: inline-block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">About and Contact Us</a>
+        </nav>
+    </header>
+
+    <nav id="sideNav" class="sidenav" style="height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0; background-color: black; overflow-x: hidden; transition: 0.5s; padding-top: 60px; font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()" style="position: absolute; top: 0; right: 25px; font-size: 36px; margin-left: 50px;">&times;</a>
+        <a href="#home" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">Home</a>
+        <a href="#carz-hub" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">CarZ Hub</a>
+        <a href="#upcomings" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">Upcomings</a>
+        <a href="#modify-service" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">Modify or Service</a>
+        <a href="#forms" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">Forms</a>
+        <a href="#buy-sell" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">Buy or Sell Old Cars</a>
+        <a href="#about-contact" style="padding: 8px 8px 8px 32px; text-decoration: none; font-size: 20px; color: white; display: block; transition: 0.3s;">About and Contact Us</a>
+    </nav>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("sideNav");
+            if (nav.style.width === "250px") {
+                nav.style.width = "0";
+            } else {
+                nav.style.width = "250px";
+            }
+        }
+
+        // Responsive Design
+        if (window.innerWidth <= 768) {
+            document.querySelector('.topnav').style.display = 'none';
+            document.querySelector('.hamburger').style.display = 'block';
+        } else {
+            document.querySelector('.hamburger').style.display = 'none';
+            document.querySelector('.topnav').style.display = 'block';
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.topnav').style.display = 'none';
+                document.querySelector('.hamburger').style.display = 'block';
+            } else {
+                document.querySelector('.hamburger').style.display = 'none';
+                document.querySelector('.topnav').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

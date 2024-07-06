@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 10%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        input[type=email], input[type=Phone] {
+            width: 100%;
+            background-color: #ffffff;
+            color: rgb(12, 12, 12);
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: black;
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    
+    <script>
+        function showThankYouMessage(event) {
+            event.preventDefault();
+            window.location.href = 'THANKS.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form for upcoming cars</h1>
+        <form action="your_server_endpoint_here" method="post" onsubmit="showThankYouMessage(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="Phone">Phone:</label>
+            <input type="Phone" id="Phone" placeholder="Your phone number..." required>
+            
+            <br>
+            <label for="cars">Upcoming car:</label>
+            <select id="cars" name="cars">
+                <option value="0">Select car:</option>
+                <option value="1">Range Rover EV</option>
+                <option value="2">Toyota Camry</option>
+                <option value="3">Chevy Corvette Zora</option>
+                <option value="4">Dacia Spring</option>
+                <option value="5">MG Cyberster</option>
+                <option value="6">Lotus Emeya</option>
+                <option value="7">Polestar 4</option>
+                <option value="8">Citroen e-C3</option>
+                <option value="9">Toyota Crown</option>
+                <option value="10">Renault 5</option>
+            </select>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
